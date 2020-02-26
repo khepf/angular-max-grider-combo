@@ -1,0 +1,37 @@
+<section>
+<label>Server Name</label>
+<!-- <input 
+type="text"
+class="form-control"
+(input)="onUpdateServerName($event)"> -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<p>{{ serverName }}</p>
+
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+<p>{{ serverCreationStatus }}</p>
+</section>
+
+<section>
+  <input type="text" [(ngModel)]="userName">
+  <p>{{ userName }}</p>
+  <button class="btn btn-primary" [disabled]="!userName" (click)="resetUserName()">Reset UserName</button>
+</section>
+
+
+
+<!-- Section 3: String Reversal -->
+<label>3. Reverse a String:</label>
+<input type="text" class="form-control" (input)="reverseInput($event)">
+<p>{{ justAString }}</p>
+
+<!-- Section 4: Palindromes -->
+<label>4. Is this a palindrome?:</label>
+<input type="text" class="form-control" (input)="isPalindrome($event)">
+<p>{{ maybeAPalindrome }}</p>
+
+<!-- Section 5: Reversing an Int -->
+<label>5. Reverse an Integer</label>
+<input type="text" class="form-control" (input)="reverseInt($event)">
+<p>{{ reversedIntInput }}</p>
+
+

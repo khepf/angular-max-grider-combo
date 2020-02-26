@@ -1,27 +1,71 @@
-# UdemyAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.2.
+### ngModel
+`import { FormsModule } from '@angular/forms';`
 
-## Development server
+`<input type="text" [(ngModel)]="name" />`
+`<p>{{ name }}</p>`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### add bootstrap 3
+`npm install --save bootstrap@3`
 
-## Code scaffolding
+```
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### use the cli to create components
+`ng generate component testcomponent`
+`ng g c testcomponent`
 
-## Build
+### Databinding
+- communication between typescript code and the template (HTML)
+  - output data ---->
+    - string interpolation {{ data }}
+      - <h3>Server id {{ serverId }} is {{ getServerStatus() }}</h3>
+    - property binding [property]="data"
+      - [disabled]="!allowNewServer"
+  - <----- react to [user] events
+    - event binding (event)="expression"
+  - <---two-way binding---> (combination of both) [(ngModel)]="data"
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Event Binding
+```
+<button (click)="onCreateServer()">Add Server</button>
+<p>{{ serverCreationStatus }}</p>
+```
+```
+serverCreationStatus = 'No server was created!';
+onCreateServer() {
+  this.serverCreationStatus = 'Server was created';
+}
+```
+How do you know to which Properties or Events of HTML Elements you may bind? You can basically bind to all Properties and Events - a good idea is to console.log()  the element you're interested in to see which properties and events it offers.
 
-## Running unit tests
+Important: For events, you don't bind to onclick but only to click (=> (click)).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The MDN (Mozilla Developer Network) offers nice lists of all properties and events of the element you're interested in. Googling for YOUR_ELEMENT properties  or YOUR_ELEMENT events  should yield nice results.
 
-## Running end-to-end tests
+### Passing and using data with event binding
+```
+serverName = '';
+onUpdateServerName(event: Event) {
+  this.serverName = (<HTMLInputElement>event.target).value;
+}
+```
+```
+<input 
+type="text"
+class="form-control"
+(input)="onUpdateServerName($event)">
+<p>{{ serverName }}</p>
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Two-way Databinding (ngModel)
+```
+<input 
+type="text" 
+class="form-control" 
+[(ngModel)]="serverName">
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
