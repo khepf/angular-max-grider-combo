@@ -67,5 +67,12 @@ type="text"
 class="form-control" 
 [(ngModel)]="serverName">
 ```
-
+### Directives - instructions in the DOM
+- *ngIf
+```
+<p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }}</p>
+<ng-template #noServer>
+  <p>No Server Cerated</p>
+</ng-template>
+```
 

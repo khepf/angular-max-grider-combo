@@ -7,8 +7,16 @@ class="form-control"
 <input type="text" class="form-control" [(ngModel)]="serverName">
 <p>{{ serverName }}</p>
 
-<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
-<p>{{ serverCreationStatus }}</p>
+<button 
+class="btn btn-primary" 
+[disabled]="!allowNewServer" 
+(click)="onCreateServer()">Add Server
+</button>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }}</p>
+<ng-template #noServer>
+  <p>No Server Cerated</p>
+</ng-template>
 </section>
 
 <section>

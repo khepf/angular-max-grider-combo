@@ -9,6 +9,7 @@ export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = "No server was created!";
   serverName = "";
+  serverCreated = false;
   userName = "";
   justAString = "";
   maybeAPalindrome = "";
@@ -23,6 +24,7 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {}
 
   onCreateServer() {
+    this.serverCreated = true;
     this.serverCreationStatus =
       "Server was created! Name is " + this.serverName;
   }
