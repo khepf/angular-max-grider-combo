@@ -68,11 +68,19 @@ class="form-control"
 [(ngModel)]="serverName">
 ```
 ### Directives - instructions in the DOM
-- *ngIf
+- *Structural Directives - alters the DOM
+  - *ngIf
 ```
 <p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }}</p>
 <ng-template #noServer>
   <p>No Server Cerated</p>
 </ng-template>
 ```
+  - *ngFor
+```
+<app-server *ngFor="let server of servers"></app-server>
+```
+- *Attribute Directives - don't add/remove elements. They only change the element they are placed on.
+  - ngStyle `[ngStyle]="{backgroundColor: getColor()}"`
+  - ngClass `[ngClass]="{online: serverStatus === 'online'}"`
 

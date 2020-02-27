@@ -15,8 +15,9 @@ class="btn btn-primary"
 <!-- <p>{{ serverCreationStatus }}</p> -->
 <p *ngIf="serverCreated; else noServer">{{ serverCreationStatus }}</p>
 <ng-template #noServer>
-  <p>No Server Cerated</p>
+  <p>No Server Created</p>
 </ng-template>
+<app-server *ngFor="let server of servers"></app-server>
 </section>
 
 <section>
