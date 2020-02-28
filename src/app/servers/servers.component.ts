@@ -11,6 +11,9 @@ export class ServersComponent implements OnInit {
   serverName = "";
   serverCreated = false;
   servers = ['TestServer', 'TestServer2'];
+  paragraphHidden = false;
+  log = [];
+  nextNum = 0;
   userName = "";
   justAString = "";
   maybeAPalindrome = "";
@@ -37,6 +40,11 @@ export class ServersComponent implements OnInit {
 
   resetUserName() {
     this.userName = "";
+  }
+
+  onToggleDetails() {
+    this.paragraphHidden = !this.paragraphHidden;
+    this.log.push(new Date());
   }
 
   // Section 3: String Reversal

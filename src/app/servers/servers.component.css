@@ -1,0 +1,13 @@
+.border-primary { 
+  border: 1px solid #007bff;
+  width: 300px;
+  margin: 30px;
+}
+
+.pHidden {
+  display: none;
+}
+
+.white-text {
+  color: white;
+}

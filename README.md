@@ -83,4 +83,12 @@ class="form-control"
 - *Attribute Directives - don't add/remove elements. They only change the element they are placed on.
   - ngStyle `[ngStyle]="{backgroundColor: getColor()}"`
   - ngClass `[ngClass]="{online: serverStatus === 'online'}"`
+```
+<div 
+*ngFor="let logItem of log; let i = index"
+[ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'tranparent'}"
+[ngClass]="{'white-text': i >= 4}">
+{{logItem}}
+</div>
+```
 
